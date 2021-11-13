@@ -1,0 +1,69 @@
+<div id="wrapper_template" *ngIf="contentLoaded">
+  <div class="card fade-in">
+    <div class="col-xs-12 align-center line-top line-bottom padding-1rem cursor-default">
+      <h4>Mediathek</h4>
+    </div>
+
+    <div class="col-xs-12 padding-1rem line-bottom">
+
+      <p> {{'MEDIATHEK_text1'|translate}} <a
+          class="darklink" href="https://www.youtube.com/playlist?list=PL7JJ2Kr3oZhCg90Lcog0Tj0x3aYbOD3Pu">YouTube</a>.
+      </p>
+      <p class="margin-none">
+        {{'MEDIATHEK_text2'|translate}} <a class="darklink"
+          routerLink="/contact">{{'MEDIATHEK_link'|translate}}</a>.
+      </p>
+    </div>
+
+    <div class="col-xs-6 padding-1rem" style="display:flex;justify-content:center">
+      <h4 style="user-select: none; cursor: pointer;" [ngClass]="status ? 'success' : 'danger'" class="align-icons"
+        (click)="showVideos()">
+        <fa-icon [icon]="faFilm"></fa-icon>
+        &nbsp;Videos&nbsp;
+        <fa-icon [icon]="faFilm"></fa-icon>
+      </h4>
+    </div>
+    <div class="col-xs-6 padding-1rem" style="display:flex;justify-content:center;">
+      <h4 style="user-select: none; cursor: pointer;" [ngClass]="status ? 'danger' : 'success'" class="align-icons"
+        (click)="showImages()">
+        <fa-icon [icon]="faImage"></fa-icon>
+        &nbsp;{{'MEDIATHEK_images'|translate}}&nbsp;
+        <fa-icon [icon]="faImage"></fa-icon>
+      </h4>
+    </div>
+
+    <div class="col-xs-12 align-center line-top line-bottom padding-1rem">
+
+      <button class="btn btn-success" routerLink="/hub">{{'back'|translate}}</button>
+
+    </div>
+
+
+  </div>
+
+
+  <div style="margin-top: 2rem" class="card fade-in text-center" *ngFor="let media of mediathek">
+
+    <p>
+      {{media.title}}
+    </p>
+    <figure class="figure">
+
+      <a *ngIf="media.type=='video'" href="https://www.youtube.com/watch?v={{media.url}}" target="_blank">
+        <img src="https://i.ytimg.com/vi/{{media.url}}/maxresdefault.jpg" class="figure-img img-fluid rounded"
+          alt="{{media.title}}">
+      </a>
+
+      <a href="{{media.url}}" target="_blank">
+        <img *ngIf="media.type=='image'" src="{{media.url}}" class="figure-img img-fluid rounded" alt="{{media.title}}">
+      </a>
+
+      <figcaption class="figure-caption">
+        <span style="float: left">{{media.creatorName}}</span>
+        <span style="float: right">{{media.date}}</span>
+      </figcaption>
+    </figure>
+
+
+  </div>
+</div>

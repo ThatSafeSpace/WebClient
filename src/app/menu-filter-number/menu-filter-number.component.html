@@ -1,0 +1,16 @@
+<div class="container col-sm-offset-3 col-sm-6 padding-1rem fade-in align-center">
+  <button class="btn btn-success mr-3 width-unset" title="{{'back'|translate}}"
+    (click)="menuService.toggleFilterSettingsNumber()">
+    <fa-icon [icon]="faChevronLeft"></fa-icon>
+  </button>
+
+  <input [class.active]="menuService.object.filterNumberSelected" 
+  class="btn btn-success mr-3 width-unset" style="text-align: center;width:50%" autofocus
+    value="{{menuService.object.filterNumberValue}}" #number
+    (keyup)="menuService.object.filterNumberValue = number.value" type="number" min="5">
+
+  <button class="btn btn-success width-unset" (click)="menuService.maxNumberOfEntries()">
+    max
+  </button>
+
+</div>

@@ -1,0 +1,112 @@
+<header>
+  <div *ngIf="showUpperLanguageMenu" class="fade-in" style="display: flex;">
+    <div class="container" id="logo">
+      <div class="row">
+        <div (click)="toggleLanguageSettings()" class="col-xs-3  col-sm-4">
+          <h4 style="text-align: center;">
+            <fa-icon id="logo" [icon]="faLanguage"></fa-icon>
+          </h4>
+        </div>
+        <div style="padding:0;" class="col-xs-6  col-sm-4">
+          <a *ngIf="router.isActive('/', true)" routerLink="/list" routerLinkActive="active">
+            <h4 id="logo">ThatSafeSpace²</h4>
+          </a>
+
+          <a *ngIf="!router.isActive('/', true)" routerLink="/" routerLinkActive="active">
+            <h4 id="logo">ThatSafeSpace²</h4>
+          </a>
+
+        </div>
+        <div class="col-xs-3  col-sm-4">
+          <h4 style="text-align: center;">
+            <a routerLink="/support" routerLinkActive="active">
+              <fa-icon class="mr-2" title="{{'donate' | translate}}" alt="donate" id="logo" [icon]="faDonate">
+              </fa-icon>
+            </a>
+            <a routerLink="/contact" routerLinkActive="active">
+              <fa-icon title="{{'share' | translate}}" alt="share" id="logo" [icon]="faShareAltSquare"></fa-icon>
+            </a>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="languageSelection" class="fade-in" style="display: flex;">
+    <div class="container" id="logo">
+      <div class="row">
+        <div class="col-xs-3  col-sm-4">
+          <h4 title="{{'back' | translate}}">
+            <div (click)="toggleLanguageSettings()">
+              <fa-icon [icon]="faChevronLeft"></fa-icon>
+            </div>
+          </h4>
+        </div>
+
+        <div class="col-xs-6  col-sm-4">
+          <div class="col-xs-6 text-decoration-underline" style="padding:0; align-self: center"
+            (click)="translateService.use('en')">
+            <h4 title="english" style="display: block; user-select: none;">
+              english</h4>
+          </div>
+          <div class="col-xs-6 text-decoration-underline" style="padding:0; align-self: center"
+            (click)="translateService.use('de')">
+            <h4 title="deutsch" style="display: block; user-select: none;">
+              deutsch
+            </h4>
+          </div>
+
+        </div>
+        <div class="col-xs-3  col-sm-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-header" *ngIf="router.isActive('/list', true)">
+    <app-menu-start *ngIf="menuObject.start"></app-menu-start>
+    <app-menu *ngIf="menuObject.options"> </app-menu>
+    <app-menu-filter *ngIf="menuObject.filter"></app-menu-filter>
+    <app-menu-filter-language *ngIf="menuObject.filterLang"></app-menu-filter-language>
+    <app-menu-filter-number *ngIf="menuObject.filterNumber"></app-menu-filter-number>
+    
+    <app-menu-sort *ngIf="menuObject.sort"></app-menu-sort>
+    <app-menu-search *ngIf="menuObject.searchbar"></app-menu-search>
+  </div>
+
+  <div id="site-header" *ngIf="router.isActive('/add-entry', true)">
+    <app-menu-add-entry ></app-menu-add-entry>
+  </div>
+
+  <div id="site-header" *ngIf="this.router.url.match('\/entry\/[0-9]+')||this.router.url.match('\/list\/[0-9]+')">
+    <app-menu-statement></app-menu-statement>
+  </div>
+
+  <div id="site-header" *ngIf="router.isActive('/fallacies', true)||
+      router.isActive('/biases', true)||
+      router.isActive('/razors', true)">
+    <app-syllabus-menu></app-syllabus-menu>
+  </div>
+</header>
+<router-outlet></router-outlet>
+
+
+
+<footer *ngIf="router.isActive('/', true)">
+  <div class="container" ng-if="numberOfEntries" class="fade-in">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 style="text-align: center">
+          <small style="color: ghostwhite; ">
+
+            <a style="color: inherit;" routerLink="/impressum" routerLinkActive="active">impressum</a> |
+            <a style="color: inherit;" routerLink="/dsgvo" routerLinkActive="active">dsgvo</a> |
+
+            <a style="color: inherit;" routerLink="/support" routerLinkActive="active">{{"donate"|translate}}</a> |
+            <!--{{numberOfEntries}}/{{numberOfEntriesTotal}} |-->
+            © 2020
+          </small>
+        </h4>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,141 @@
+<div id="wrapper_template">
+  <div [hidden]="showThanks" class="card fade-in">
+    <div [hidden]="!showRules" class="fade-in" >
+      <div class="line-top line-bottom padding-1rem align-center">
+        <h4><b>{{'rules3'|translate}}</b></h4>
+      </div>
+      <p class="line-bottom padding-1rem margin-none">
+        1) {{'rules4'|translate}}
+      </p>
+      <p class="line-bottom padding-1rem margin-none">
+        2) {{'rules5'|translate}}
+      </p>
+      <div class="line-bottom padding-1rem margin-none">
+        <p>3) {{'rules10'|translate}}</p>
+        <ul> 
+          <li>{{'rules6'|translate}}</li>
+          <li>{{'rules9'|translate}}</li>
+          <li>{{'rules7'|translate}}</li>
+          <li>{{'rules11'|translate}}</li>
+          <li>{{'rules12'|translate}}</li>
+        </ul>
+      </div>
+
+      <div class="col-xs-12 align-center line-bottom padding-1rem">
+        <div class="btn btn-success" (click)="toggleRules()">{{'back'|translate}}</div>
+      </div>
+    </div>
+
+
+    <form [hidden]="!showNewEntryForm" #myform="ngForm" (ngSubmit)="register(myform)" class="form form-register fade-in">
+
+      <div class="line-top padding-1rem">
+        <span>
+          <label (click)="toggleRules()" class="btn btn-success width-unset">{{'rules1'|translate}}
+            {{'rules2'|translate}}</label>
+        </span>
+      </div>
+
+      <div class="line-top padding-1rem">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div style="font-size: inherit; color: inherit;border: thin #4a4e6973 solid;" class="input-group-text"
+              id="btnGroupAddon">
+              <fa-icon [icon]="faAt"></fa-icon>
+            </div>
+          </div>
+          <input class="form-control"
+            style="font-size: inherit; background-color: ghostwhite; display: unset;border: thin #4a4e6973 solid;"
+            name="email" id="email" type="email" placeholder="{{'newEntry-email'|translate}}" autocomplete="false"
+            ngModel [email]="true">
+        </div>
+      </div>
+
+     
+
+      <div class="line-top padding-1rem">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div style="font-size: inherit; color: inherit;border: thin #4a4e6973 solid;" class="input-group-text"
+              id="btnGroupAddon">
+              <fa-icon [icon]="faHashtag"></fa-icon>
+            </div>
+          </div>
+          <input class="form-control" autocomplete="off"
+            style="font-size: inherit; background-color: ghostwhite; display: unset; font-style: italic; border: thin #4a4e6973 solid;"
+            name="tags" id="register-password" type="tags" placeholder="{{'newEntry-tags'|translate}}" ngModel>
+        </div>
+      </div>
+
+      <div class="line-top padding-1rem">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div style="font-size: inherit; color: inherit;border: thin #4a4e6973 solid;" class="input-group-text"
+              id="btnGroupAddon">
+              <fa-icon [icon]="faPen"></fa-icon>
+            </div>
+          </div>
+
+          <textarea rows="6"  oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' class="form-control" #textarea
+            style="font-size: inherit; background-color: ghostwhite; display: unset;border: thin #4a4e6973 solid;" 
+            name="text" id="register-text" type="text" placeholder="{{'newEntry-text'|translate}}" ngModel required>
+          </textarea>
+        </div>
+        <span><i>{{textarea.value.length}}</i></span>
+      </div>
+
+      <div class="line-top padding-1rem">
+        
+        <p class="margin-none">{{'selectLanguage'|translate}}:</p>
+        <div class="col-xs-6 align-center padding-1rem">
+          <input id="english" type="radio" value="english" name="language" ngModel required>
+          <label class="btn btn-success" for="english">{{'primaryLanguage'|translate}}</label>
+        </div>
+        <div class="col-xs-6 align-center padding-1rem">
+          <input id="german" type="radio" value="german" name="language" ngModel required>
+          <label class="btn btn-success" for="german">{{'secondLanguage'|translate}}</label>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 line-top line-bottom padding-1rem align-center">
+        <input class="btn btn-success" [disabled]="myform.form.status !== 'VALID'" type="submit"
+          value="{{'addEntry'|translate}}">
+      </div>
+
+    </form>
+  </div>
+
+  <div [hidden]="!showThanks" class="card fade-in">
+    <div class="col-xs-12 line-top line-bottom padding-1rem align-center">
+      <h4>{{'thanksCard-title' | translate}}</h4>
+    </div>
+
+    <div class="col-xs-12 padding-1rem">
+      <p>{{'thanksCard-text-one' | translate}}</p>
+      <p class="margin-none">{{'thanksCard-text-two' | translate}}</p>
+    </div>
+
+    <div class="col-xs-12 line-top line-bottom padding-1rem align-center">
+      <a class="col-xs-6 ">
+        <div style="width: unset;" class="btn btn-success" routerLink="/contact">
+          Social Media
+        </div>
+      </a>
+      <a class="col-xs-6">
+        <div class="btn btn-success" routerLink="/support">
+          {{'donate'|translate}}
+        </div>
+      </a>
+    </div>
+
+    <div class="col-xs-12 padding-1rem">
+      <p class="align-center margin-none">{{'thanksCard-end' | translate}}</p>
+    </div>
+
+    <div class="col-xs-12 align-center line-top line-bottom padding-1rem">
+      <div class="btn btn-success" routerLink="/list">{{'back'|translate}}</div>
+    </div>
+
+  </div>
+</div>

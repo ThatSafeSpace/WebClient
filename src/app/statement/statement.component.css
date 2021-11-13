@@ -1,0 +1,81 @@
+#wrapper_template{
+  padding-top: 10rem;
+}
+
+.float-right{
+  float: right;
+}
+.mat-horizontal-stepper-header-container.ng-tns-c109-1 {
+  display: none;
+}
+
+.voteModule > .mat-horizontal-content-container{
+  padding: 0;
+} 
+
+.infocard{
+  box-shadow: none;
+}
+.infocard:hover{
+  box-shadow: none;
+}
+
+.phrase-lines {
+  border-top: thin #4a4e6973 solid;
+  border-bottom: thin #4a4e6973 solid;
+  padding: 1rem;
+}
+
+
+.tags-lines {
+  border-top: thin #4a4e6973 solid;
+}
+
+.tags {
+  padding: 1rem;
+  text-align: right;
+}
+
+.back-button {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  border-top: thin #4a4e6973 solid;
+}
+
+.paddingBottom {
+  padding-bottom: 2rem
+}
+
+.fade-in-question {
+  opacity: 0;
+  opacity: 1 \9;
+  /*just in case ie*/
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: .3s;
+  -moz-animation-duration: .3s;
+  animation-duration: .3s;
+}
+
+.fade-in-answer {
+  opacity: 0;
+  opacity: 1 \9;
+  /*just in case ie*/
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}

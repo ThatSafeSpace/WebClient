@@ -1,0 +1,17 @@
+<div class="container col-sm-offset-3 col-sm-6 padding-1rem fade-in align-center">
+  <button class="btn btn-success mr-3 width-unset" title="{{'back'|translate}}" (click)="menuService.toggleOptions()">
+    <fa-icon [icon]="faChevronLeft"></fa-icon>
+  </button>
+  <button class="btn btn-success mr-2 width-unset" [class.active]="menuService.object.filterSelected"
+    (click)="menuService.toggleFilterLanguageOrSortSettings()">
+    {{'MENU_filter'|translate}}
+  </button>
+  <button class="btn btn-success mr-2 width-unset" [class.active]="menuService.object.sortSelected"
+    (click)="menuService.toggleSortSettings()">
+    {{'MENU_sort'|translate}}
+  </button>
+ 
+  <div class="btn btn-success width-unset" (click)="apiService.shuffleEntries()">
+    <fa-icon [icon]="faRandom"></fa-icon>
+  </div>
+</div>

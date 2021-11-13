@@ -1,0 +1,23 @@
+<div class="container col-sm-offset-3 col-sm-6 padding-1rem fade-in align-center">
+  <button style="width: unset" class="btn btn-success mr-3" routerLink="/hub" routerLinkActive="active">
+    <fa-icon [icon]="faChevronLeft"></fa-icon>
+  </button>
+
+  <button class="btn btn-success width-unset mr-2" [class.active]="menuService.object.optionSelected"
+    (click)="menuService.toggleOptions()">
+    {{'Options'|translate}}
+  </button>
+
+  <button *ngIf="!globals.activateCooldownTimer" class="btn btn-success width-unset mr-2" (click)="menuService.toggleAddNewEntryMenu()" routerLink="/add-entry">
+    {{'LIST_AddNewEntry'|translate}}
+  </button>
+
+  <button *ngIf="globals.activateCooldownTimer" class="btn btn-success width-unset mr-2" [ngClass]="{'disabled': globals.activateCooldownTimer}">
+    <countdown [config]="{leftTime: 10}" (event)="handleEvent($event)"></countdown>
+  </button>
+
+  <button class="btn btn-success width-unset" [class.active]="menuService.object.searchbarText != ''"
+  (click)="menuService.toggleSearchBar()">
+  <fa-icon [icon]="faSearch"></fa-icon>
+</button>
+</div>

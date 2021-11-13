@@ -1,0 +1,143 @@
+<div>
+    <form style="text-align: center;">
+      <!-- RADIO BUTTONS -->
+      <div *ngIf="showAgreeForm">
+        <div class="col-xs-12" style="padding: 2rem 0 2rem 0">
+          <label style="font-size: unset; font-weight: unset;">{{'agree-question'|translate}}</label>
+        </div>
+        <br>
+
+        <div class="paddingBottom col-xs-6">
+          <input id="agreeY" type="radio" (click)="agreeing('agreeY')">
+          <label for="agreeY" class="btn btn-success">{{'yes'|translate}}</label>
+        </div>
+        <div  class="paddingBottom col-xs-6">
+          <input id="agreeN" type="radio" (click)="agreeing('agreeN')">
+          <label for="agreeN" class="btn btn-success">{{'no'|translate}}</label>
+        </div>
+      </div>
+      <!-- RADIO BUTTONS -->
+      <div *ngIf="showOffendedForm">
+        <div class="col-xs-12 fade-in-question" style="padding: 2rem 0 2rem 0">
+          <label style="font-size: unset; font-weight: unset;">{{'offended-question'|translate}}</label>
+        </div>
+        <br>
+        <div class="paddingBottom col-xs-6  fade-in-answer">
+          <input id="offendedY" type="radio" (click)="offended('offendedY')">
+          <label for="offendedY" class="btn btn-success">{{'yes'|translate}}</label>
+        </div>
+        <div class="paddingBottom col-xs-6  fade-in-answer">
+          <input id="offendedN" type="radio" (click)="offended('offendedN')">
+          <label for="offendedN" class="btn btn-success">{{'no'|translate}}</label>
+        </div>
+      </div>
+      <!-- RADIO BUTTONS -->
+      <div *ngIf="showPunishForm">
+        <div class="col-xs-12 fade-in-question" style="padding: 2rem 0 2rem 0">
+          <label style="font-size: unset; font-weight: unset;">{{'punish-question'|translate}}</label>
+        </div>
+        <br>
+        <div>
+          <div class="paddingBottom col-xs-6  fade-in-answer">
+            <input id="punishY" type="radio" (click)="punish('punishY')">
+            <label for="punishY" class="btn btn-success">{{'yes'|translate}}</label>
+          </div>
+          <div class="paddingBottom col-xs-6  fade-in-answer">
+            <input id="punishN" type="radio" name="punish" (click)="punish('punishN')">
+            <label for="punishN" class="btn btn-success">{{'no'|translate}}</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- RADIO BUTTONS -->
+      <div *ngIf="showPunishmentForm">
+        <div class="col-xs-12 roll-in-blurred-left" style="padding: 2rem 0 2rem 0">
+          <label style="font-size: unset; font-weight: unset;">{{'punishment-question'|translate}}</label>
+        </div>
+        <div style="padding: 0 0 2rem 0;" class="col-xs-6 fade-in-answer">
+          <input id="fine" type="radio" (click)="punishment('fine')">
+          <label for="fine" class="btn btn-success">{{'fine'|translate}}</label>
+        </div>
+        <div style="padding: 0 0 2rem 0;" class="col-xs-6 fade-in-answer">
+          <input id="jail" type="radio" (click)="punishment('jail')">
+          <label for="jail" class="btn btn-success">{{'jail'|translate}}</label>
+        </div>
+        <div class="paddingBottom col-xs-6 fade-in-answer">
+          <input id="hurt" type="radio" (click)="punishment('hurt')">
+          <label for="hurt" class="btn btn-success">{{'hurt'|translate}}</label>
+        </div>
+
+        <div class="paddingBottom col-xs-6 fade-in-answer">
+          <input id="death" type="radio" (click)="punishment('death')">
+          <label for="death" class="btn btn-success">{{'death'|translate}}</label>
+        </div>
+      </div>
+      <br>
+      <div *ngIf="showResults">
+
+        <div class="fade-in-answer">
+
+          <div class="col-xs-12" style="padding:1rem; border-bottom: thin #4a4e6973 solid;">
+            <label>{{'shareUrl-one'|translate}}</label>
+          </div>
+
+          <div style="padding:1rem; " class="ratings col-xs-4">
+            <u>{{'agree'|translate}}</u>
+            <div>
+              <div class="col-xs-6">
+                {{'yes'|translate}}<br>{{statement.agreeY}}
+              </div>
+              <div class="col-xs-6">
+                {{'no'|translate}}<br>{{statement.agreeN}}
+              </div>
+            </div>
+          </div>
+          <div style="padding:1rem; border-right: thin #4a4e6973 solid; border-left: thin #4a4e6973 solid;"
+            class="ratings col-xs-4">
+            <u>{{'offended'|translate}}</u>
+            <div>
+              <div class="col-xs-6">
+                {{'yes'|translate}}<br>{{statement.offendedY}}
+              </div>
+              <div class="col-xs-6">
+                {{'no'|translate}}<br>{{statement.offendedN}}
+              </div>
+            </div>
+          </div>
+          <div style="padding:1rem;" class="ratings col-xs-4">
+            <u>{{'punish'|translate}}</u>
+            <div>
+              <div class="col-xs-6">
+                {{'yes'|translate}}<br>{{statement.punishY}}
+              </div>
+              <div class="col-xs-6">
+                {{'no'|translate}}<br>{{statement.punishN}}
+              </div>
+            </div>
+          </div>
+          <div style="border-top: thin #4a4e6973 solid; padding:1rem; border-bottom: thin #4a4e6973 solid;"
+            class="ratings col-xs-12">
+            <u>{{'punishment'|translate}}</u>
+            <div>
+              <div class="col-xs-3">
+                {{'fine'|translate}}<br>{{statement.fine}}
+              </div>
+              <div class="col-xs-3">
+                {{'jail'|translate}}<br>{{statement.jail}}
+              </div>
+              <div class="col-xs-3">
+                {{'hurt'|translate}}<br>{{statement.harm}}
+              </div>
+              <div class="col-xs-3">
+                {{'death'|translate}}<br>{{statement.death}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12" style="padding:1rem;">
+          <p>{{'shareUrl-two'|translate}}</p>
+          <input class="form-control" type="text" ng-model="url" select-on-click />
+        </div>
+      </div>
+    </form>
+  </div>

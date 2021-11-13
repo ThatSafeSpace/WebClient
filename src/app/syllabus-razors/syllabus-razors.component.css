@@ -1,0 +1,27 @@
+#wrapper_template {
+  padding-top: 10rem;
+}
+
+.line-bottom {
+  border-bottom: #4a4e6973 thin solid;
+}
+
+.line-top {
+  border-top: #4a4e6973 thin solid;
+}
+
+.padding-1rem {
+  padding: 1rem;
+}
+
+.padding-1rem-nobottom {
+  padding: 1rem 1rem 0 1rem;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.width-unset {
+  width: unset;
+}

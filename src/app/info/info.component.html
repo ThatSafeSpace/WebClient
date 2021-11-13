@@ -1,0 +1,80 @@
+<div id="wrapper_template">
+  <mat-accordion class="card fade-in" displayMode="flat">
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <u>
+            <h4>{{'INFO_about-why-title' | translate}}</h4>
+          </u>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="padding-1rem">
+        <p>
+          {{ 'INFO_about-why-text-first' | translate }}
+        </p>
+        <p>
+          {{ 'INFO_about-why-text-second' | translate }}
+        </p>
+        <p>
+          {{ 'INFO_about-why-text-third' | translate }}
+        </p>
+        <p style="margin: 0;">
+          {{ 'INFO_about-why-text-fourth' | translate }}
+        </p>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <u>
+            <h4>{{'INFO_about-how-title'|translate}}</h4>
+          </u>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="padding-1rem">
+        <p>{{'INFO_about-how-text-one'|translate}}</p>
+        <p>{{'INFO_about-how-text-two'|translate}}</p>
+        <p>{{'INFO_about-how-text-three'|translate}}</p>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <u>
+            <h4>{{'INFO_about-what-title'|translate}}</h4>
+          </u>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="padding-1rem">
+        <p>{{'INFO_about-what-one'|translate}}</p>
+        <p>
+          {{'INFO_about-what-one-2'|translate}}
+          {{'INFO_about-what-two'|translate}}
+          <a routerLink="/fallacies" class="darklink">
+            {{'INFO_about-what-two-fallacies'|translate}}</a>
+          {{'INFO_about-what-two-fallacies-2'|translate}}
+          <a routerLink="/biases" class="darklink">
+            {{'INFO_about-what-two-biases'|translate}}</a>
+            {{'INFO_about-what-two-biases-2'|translate}}
+        </p>
+        <p>{{'INFO_about-what-three'|translate}}
+          <a routerLink="/contact" class="darklink">
+            {{'INFO_about-what-three-2'|translate}}</a>.
+        </p>
+
+        <p>{{'INFO_about-what-four'|translate}}
+          <a routerLink="/support" class="darklink">
+            {{'INFO_about-what-four-2'|translate}}</a>.
+        </p>
+
+
+      </div>
+    </mat-expansion-panel>
+
+    <div class="col-xs-12 line-top line-bottom padding-1rem align-center">
+      <a class="btn btn-success width-unset" routerLink="/hub">
+        {{ 'INFO_start-button' | translate }}
+      </a>
+    </div>
+  </mat-accordion>
+</div>

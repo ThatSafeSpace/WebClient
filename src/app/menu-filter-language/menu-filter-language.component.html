@@ -1,0 +1,23 @@
+<div class="container col-sm-offset-3 col-sm-6 padding-1rem fade-in align-center">
+    <button class="btn btn-success mr-3 width-unset" title="{{'back'|translate}}"
+      (click)="menuService.toggleFilterSettingsLanguage()">
+      <fa-icon [icon]="faChevronLeft"></fa-icon>
+    </button>
+  
+    <button class="btn btn-success mr-2 width-unset" title="{{'VAR_ENGLISH'|translate}}"
+      [class.active]="menuService.object.filterLanguageEnglish" (click)="menuService.filterLanguage('english')">
+      {{'VAR_ENGLISH'| translate}}
+    </button>
+  
+    <button class="btn btn-success mr-3 width-unset" title="{{'VAR_GERMAN'|translate}}"
+      [class.active]="menuService.object.filterLanguageGerman" (click)="menuService.filterLanguage('german')">
+      {{'VAR_GERMAN'| translate}}
+    </button>
+  
+    <button class="btn btn-success width-unset" title="{{'VAR_RESET'|translate}}"
+      [disabled]="menuService.object.filterLanguageResetDisabled" (click)="menuService.filterLanguageReset()">
+      <fa-icon [icon]="faFilter"></fa-icon>
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
+  </div>
+  

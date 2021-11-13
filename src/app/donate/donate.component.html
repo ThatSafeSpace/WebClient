@@ -1,0 +1,81 @@
+<div id="wrapper_template">
+  <div class="card fade-in">
+    <div class="line-top line-bottom padding-1rem">
+      <h4 class="align-icons">
+        <a class="darklink margin-auto" routerLink="/WallOfFame">
+          <fa-icon class="logo-dark" [icon]="faAward"></fa-icon>
+          &nbsp;Wall of Fame&nbsp;
+          <fa-icon class="logo-dark" [icon]="faAward"></fa-icon>
+        </a>
+      </h4>
+    </div>
+    <div id="supporters">
+      <div class="line-bottom padding-1rem">
+        <h4 class="align-icons">
+          <a href="https://www.ko-fi.com/thatsafespace" target="_blank">
+            <fa-icon class="logo-dark" [icon]="faHeart"></fa-icon>
+          </a>
+          &nbsp;{{'ebanking'|translate}} 
+        </h4>
+        <p>
+          {{'recipient'|translate}}: Denis Orechov
+        </p>
+        <p>
+          {{'purpose'|translate}}: ThatSafeSpace + Name
+        </p>
+        <p>
+          IBAN: DE59 5001 0060 0578 9086 02
+        </p>  
+      </div>
+
+      <div class="line-bottom padding-1rem">
+        <h4 class="align-icons">
+          <a href="https://www.patreon.com/thatsafespace" target="_blank">
+            <fa-icon class="logo-dark" [icon]="faPatreon"></fa-icon>
+          </a>
+          &nbsp;Patreon
+        </h4>
+        <p>
+          {{'patreon1'|translate}}
+          <a class="darklink" href="https://www.patreon.com/thatsafespace" target="_blank">
+            {{'patreon2'|translate}}</a>.
+        </p>
+      </div>
+
+
+      <div class="line-bottom padding-1rem">
+        <h4 class="align-icons">
+          <a href="https://www.paypal.me/OffendYourself" target="_blank">
+            <fa-icon class="logo-dark" [icon]="faPaypal"></fa-icon>
+          </a>
+          &nbsp;PayPal
+        </h4>
+        <p>
+          {{'paypal1'|translate}}
+          <a class="darklink" href="https://www.paypal.me/OffendYourself" target="_blank">
+            {{'paypal2'|translate}}</a>.
+        </p>
+      </div>
+
+      <div class="padding-1rem">
+        <h4 class="align-icons">
+          <a href="https://liberapay.com/ThatSafeSpace/donate" target="_blank">
+            <fa-icon class="logo-dark" [icon]="faStar"></fa-icon>
+          </a>
+          &nbsp;LiberaPay
+        </h4>
+        <p>
+          {{'subscribestar1'|translate}}
+          <a class="darklink" href="https://liberapay.com/ThatSafeSpace/donate" target="_blank">
+            {{'subscribestar2'|translate}}</a>.
+        </p>
+      </div>
+
+    </div>
+    <div class="padding-1rem align-center line-top line-bottom col-xs-12">
+      <button class="btn btn-success" (click)="backService.goBack()">
+        {{'back'|translate}}
+      </button>
+    </div>
+  </div>
+</div>

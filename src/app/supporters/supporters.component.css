@@ -1,0 +1,29 @@
+/*This stays here forever*/
+#wrapper_template {
+  padding-top: 6rem;
+}
+
+.success {
+  text-decoration: underline;
+}
+
+.danger {
+  text-decoration: none;
+}
+
+
+
+.testimonial {
+  padding: 1rem;
+  margin: 0;
+  font-weight: unset;
+  margin-top: 0;
+  font-style: italic;
+}
+
+
+@media screen and (min-width: 360px) {
+  .testimonial {
+    margin: 0 2rem 0 2rem;
+  }
+}

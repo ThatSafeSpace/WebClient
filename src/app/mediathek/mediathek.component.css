@@ -1,0 +1,74 @@
+/*This stays here forever*/
+#wrapper_template {
+  padding-top: 6rem;
+}
+
+
+
+.align-center {
+  text-align: center;
+}
+
+.success{
+  text-decoration: underline;
+}
+
+.danger{
+  text-decoration: none;
+}
+
+.width-unset{
+  width:unset;
+}
+
+#thumbnail {
+  height: 20vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border: 2px solid black;
+}
+
+
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(5, 5, 5, 0.4), 0 6px 20px 0 rgba(15, 15, 15, 0.38);
+
+}
+
+
+@media screen and (min-width: 360px) {
+  #thumbnail {
+    height: 24vh;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  #thumbnail {
+    height: 24vh;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  #thumbnail {
+    height: 28vh;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #thumbnail {
+    height: 40vh;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #thumbnail {
+    height: 44vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #thumbnail {
+    height: 43vh;
+  }
+}

@@ -1,0 +1,163 @@
+<div id="wrapper_template" *ngIf="contentLoaded">
+  <div class="card fade-in">
+    <div class="col-xs-12 align-center line-top line-bottom padding-1rem cursor-default">
+      <h4>Wall of Fame</h4>
+    </div>
+
+    <div class="col-xs-12 padding-1rem line-bottom">
+
+      <p>{{"SUPPORTERS_text1"|translate}}
+      </p>
+
+      <p class="margin-none">
+        {{"SUPPORTERS_text2"|translate}} <a class="darklink"
+        href="https://www.justetf.com/de-en/etf-profile.html?isin=IE00BDVPNG13" target="_blank">A.I. & Robotics ETF (Index: NQINTELN)</a> {{"SUPPORTERS_text3"|translate}} (<a class="darklink"
+        href="https://de.scalable.capital/einladung/bz7wmn" target="_blank">{{"SUPPORTERS_referral"|translate}}</a>){{"SUPPORTERS_text4"|translate}}.</p>
+      
+      <p></p>
+    </div>
+
+    <div class="col-xs-6 padding-1rem" style="display:flex;justify-content:center">
+      <h4 style="user-select: none; cursor: pointer;" [ngClass]="status ? 'success' : 'danger'" class="align-icons"
+        (click)="showPatrons()">
+        <fa-icon [icon]="faAward"></fa-icon>
+            &nbsp;Patrons&nbsp;
+            <fa-icon [icon]="faAward"></fa-icon>
+      </h4>
+    </div>
+    <div class="col-xs-6 padding-1rem" style="display:flex;justify-content:center;">
+      <h4 style="user-select: none; cursor: pointer;" [ngClass]="status ? 'danger' : 'success'" class="align-icons"
+        (click)="showDonors()">
+        <fa-icon [icon]="faAward"></fa-icon>
+        &nbsp;Donors&nbsp;
+        <fa-icon [icon]="faAward"></fa-icon>
+      </h4>
+    </div>
+
+    <div class="col-xs-12 align-center line-top line-bottom padding-1rem">
+
+      <button class="btn btn-success" routerLink="/hub">{{'back'|translate}}</button>
+
+    </div>
+  </div>
+
+  <div>
+    <div class="card fade-in" *ngFor="let supporter of supporters"
+      style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+      <pre class="phrase padding-1rem testimonial line-bottom">{{supporter.text}}</pre>
+      <h4 style="text-align: center;display: block;" class="align-icons">
+        <fa-icon *ngIf="supporter.method=='patreon'" [icon]="faPatreon"></fa-icon>
+        <fa-icon *ngIf="supporter.method=='paypal'" [icon]="faPaypal"></fa-icon>
+        <fa-icon *ngIf="supporter.method=='direct'" [icon]="faHeart"></fa-icon>
+        &nbsp;{{supporter.name}}, {{supporter.amount}}
+      </h4>
+    </div>
+  </div>
+
+  <!--
+    <div *ngIf="patronSwitch==false">
+      <div *ngFor="let donor of donors"
+        style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+        <h4 class="align-icons">
+         <fa-icon *ngIf="donor.method=='patreon'" [icon]="faPatreon"></fa-icon>
+         <fa-icon *ngIf="donor.method=='paypal'" [icon]="faPaypal"></fa-icon>
+          &nbsp;{{donor.name}}, {{donor.amount}}
+        </h4>
+        <pre class="phrase">{{donor.text}}</pre>
+      </div>
+    </div>
+    <div *ngIf="patronSwitch">
+      <div *ngFor="let patron of patrons"
+        style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+        <h4 class="align-icons">
+          <i class="{{patron.method}}" style="color: #22223b;"></i>
+          &nbsp;{{patron.name}}, {{patron.amount}}
+        </h4>
+        <p>{{patron.text}}</p>
+      </div>
+    </div>
+
+      -->
+</div>
+
+<!--
+<div id="wrapper_template" ng-if="showSupporters" ng-cloak>
+    <div class="card fade-in">
+       <div ng-init="patronStyle={'text-decoration': 'underline'};donorStyle={'text-decoration': 'none'}" style="border-top: thin;
+          border-top-color: #4a4e6973;
+          border-top-style: solid;">
+          <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;" >
+             <div style="display:flex;justify-content: center;">
+                <div class="col-xs-12 col-sm-6" style="display:flex;justify-content:center">
+                   <h4 ng-style="patronStyle" style="user-select: none; cursor: pointer;" class="align-icons" ng-click="patronStyle={'text-decoration': 'underline'};donorStyle={'text-decoration': 'none'};patronSwitch=true;donorSwitch=false">
+                      <i class="fas fa-award" style="color: #22223b;"></i>&nbsp;Patrons
+                      &nbsp;<i class="fas fa-award" style="color: #22223b;"></i>
+                   </h4>
+                </div>
+                <div class="col-xs-12 col-sm-6" style="display:flex;justify-content:center;">
+                   <h4 ng-style="donorStyle" style="user-select: none; cursor: pointer;" class="align-icons" ng-click="donorStyle={'text-decoration': 'underline'};patronStyle={'text-decoration': 'none'};donorSwitch=true;patronSwitch=false" >
+                      <i class="fas fa-award" style="color: #22223b;"></i>&nbsp;Donors
+                      &nbsp;<i class="fas fa-award" style="color: #22223b;"></i>
+                   </h4>
+                </div>
+             </div>
+          </div>
+          <div id="supporters">
+
+             
+             <div ng-if="donorSwitch">
+                <div ng-repeat="donor in donors" style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+                   <h4 class="align-icons">
+                      <i class="{{donor.method}}" style="color: #22223b;"></i>
+                      &nbsp;{{donor.name}}, {{donor.amount}}
+                   </h4>
+                   <p>{{donor.text}}</p>
+                </div>
+             </div>
+             <div ng-if="patronSwitch">
+                <div ng-repeat="patron in patrons" style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+                   <h4 class="align-icons">
+                      <i class="{{patron.method}}" style="color: #22223b;"></i>
+                      &nbsp;{{patron.name}}, {{patron.amount}}
+                   </h4>
+                   <p>{{patron.text}}</p>
+                </div>
+             </div>
+                <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+                 <h4 class="align-icons">
+                    <i class="fab fa-paypal" style="color: #22223b;"></i>&nbsp;
+                    Name, $
+                 </h4>
+                 <p>Text</p>
+                </div>
+                
+                <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+                 <h4 class="align-icons">
+                    <i class="fas fa-heart" style="color: #22223b;"></i>
+                    &nbsp;Name, $
+                 </h4>
+                 <p>Text</p>
+                </div>
+                -->
+<!--
+                TEMPLATES FOR LATER USE
+                
+                 <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+                   <h4 class="align-icons">
+                      <i class="fab fa-patreon" style="color: #22223b;"></i>
+                      &nbsp;Name, $
+                   </h4>
+                   <p>Text</p>
+                </div>
+                 <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+                   <h4 class="align-icons">
+                      <i class="fas fa-coffee" style="color: #22223b;"></i>
+                      &nbsp;Name, $
+                   </h4>
+                   <p>Text</p>
+                </div>
+                
+               
+          </div>
+       </div>
+        -->

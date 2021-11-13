@@ -1,0 +1,188 @@
+<div *ngIf="statementLoaded" id="wrapper_template">
+
+  <div id="screenshot" style="padding:1rem 1rem 0.5rem 1rem;">
+    <div class="card fade-in" style="margin: 0;">
+
+      <div *ngIf="statement.tags" class="tags-lines tags col-xs-12">
+        <i>{{statement.tags}}</i>
+      </div>
+      <div class="phrase-lines col-xs-12">
+        <pre class="phrase">{{statement.phrase}}</pre>
+      </div>
+      <div class="line-bottom padding-1rem col-xs-12">
+        <div class="col-xs-6">
+          <small>{{statement.date}}</small>
+        </div>
+        
+        <div class="col-xs-6" style="text-align: right;">
+          <small>ID: {{statement.id}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:1rem 1rem 0.5rem 1rem;">
+    <div class="card fade-in">
+      <mat-horizontal-stepper class="voteModule" [linear]="isLinear" #stepper>
+        <mat-step>
+          <form class="fade-in" #agreeForm="ngForm" (ngSubmit)="submit(agreeForm)">
+            <div class="col-xs-12" style="padding: 2rem 0 2rem 0">
+              <label style="font-size: unset; font-weight: unset;">{{'agree-question'|translate}}</label>
+            </div>
+            <br>
+
+            <div class="paddingBottom col-xs-6">
+              <input id="agreeY" type="radio" value="agreeY" name="vote" ngModel required>
+              <label for="agreeY" class="btn btn-success">{{'yes'|translate}}</label>
+            </div>
+
+            <div class="paddingBottom col-xs-6">
+              <input id="agreeN" type="radio" value="agreeN" name="vote" ngModel required>
+              <label for="agreeN" class="btn btn-success">{{'no'|translate}}</label>
+            </div>
+
+            <div class="paddingBottom col-xs-12">
+              <button class="btn btn-success width-unset" type="submit" matStepperNext
+                [disabled]="agreeForm.form.status !== 'VALID'">{{'vote'|translate}}</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <form #offendedForm="ngForm" (ngSubmit)="submit(offendedForm)">
+            <div class="col-xs-12" style="padding: 2rem 0 2rem 0">
+              <label style="font-size: unset; font-weight: unset;">{{'offended-question'|translate}}</label>
+            </div>
+            <br>
+
+            <div class="paddingBottom col-xs-6">
+              <input id="offendedY" type="radio" value="offendedY" name="vote" ngModel required>
+              <label for="offendedY" class="btn btn-success">{{'yes'|translate}}</label>
+            </div>
+
+            <div class="paddingBottom col-xs-6">
+              <input id="offendedN" type="radio" value="offendedN" name="vote" ngModel required>
+              <label for="offendedN" class="btn btn-success">{{'no'|translate}}</label>
+            </div>
+            <div class="paddingBottom col-xs-12">
+              <button class="btn btn-success width-unset" type="submit" matStepperNext
+                [disabled]="offendedForm.form.status !== 'VALID'">{{'vote'|translate}}</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <form #punishForm="ngForm" (ngSubmit)="submit(punishForm)">
+
+            <div class="col-xs-12 fade-in-question" style="padding: 2rem 0 2rem 0">
+              <label style="font-size: unset; font-weight: unset;">{{'punish-question'|translate}}</label>
+            </div>
+            <br>
+            <div>
+              <div class="paddingBottom col-xs-6  fade-in-answer">
+                <input id="punishY" type="radio" value="punishY" name="vote" ngModel required>
+                <label for="punishY" class="btn btn-success">{{'yes'|translate}}</label>
+              </div>
+              <div class="paddingBottom col-xs-6  fade-in-answer">
+                <input id="punishN" type="radio" value="punishN" name="vote" ngModel required>
+                <label for="punishN" class="btn btn-success">{{'no'|translate}}</label>
+              </div>
+            </div>
+            <div class="paddingBottom col-xs-12">
+              <button class="btn btn-success width-unset" type="submit" matStepperNext
+                [disabled]="punishForm.form.status !== 'VALID'">{{'vote'|translate}}</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step *ngIf="voteForPunishment">
+          <form #punishmentForm="ngForm" (ngSubmit)="submit(punishmentForm)">
+
+            <div class="col-xs-12 fade-in-question" style="padding: 2rem 0 2rem 0">
+              <label style="font-size: unset; font-weight: unset;">{{'punishment-question'|translate}}</label>
+            </div>
+            <div style="padding: 0 0 2rem 0;" class="col-xs-6">
+              <input id="fine" type="radio" value="fine" name="vote" ngModel required>
+              <label for="fine" class="btn btn-success">{{'fine'|translate}}</label>
+            </div>
+            <div style="padding: 0 0 2rem 0;" class="col-xs-6">
+              <input id="jail" type="radio" value="jail" name="vote" ngModel required>
+              <label for="jail" class="btn btn-success">{{'jail'|translate}}</label>
+            </div>
+
+
+            <div class="paddingBottom col-xs-6">
+              <input id="harm" type="radio" value="harm" name="vote" ngModel required>
+              <label for="harm" class="btn btn-success">{{'hurt'|translate}}</label>
+            </div>
+
+            <div class="paddingBottom col-xs-6">
+              <input id="death" type="radio" value="death" name="vote" ngModel required>
+              <label for="death" class="btn btn-success">{{'death'|translate}}</label>
+            </div>
+            <div class="paddingBottom col-xs-12">
+              <button class="btn btn-success width-unset" type="submit" matStepperNext
+                [disabled]="punishmentForm.form.status !== 'VALID'">{{'vote'|translate}}</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <div class="fade-in-answer">
+            <!--
+        <div class="col-xs-12" style="padding:1rem; border-bottom: thin #4a4e6973 solid;" translate [translateParams]="{ agreeTotal: statement.agreeTotal }">
+         
+            RESULTS_TITLE
+        </div>
+        -->
+            <div class="col-xs-4 align-center padding-1rem" style="border-top: thin #4a4e6973 solid;">
+              <u><small>{{'agree'|translate}}</small></u>
+              <div>
+                <small>{{'yes'|translate}}: </small><small>{{statement.agreeY}}</small> <br><small>{{'no'|translate}}: </small><small>{{statement.agreeN}}</small> 
+              </div>
+            </div>
+            <div
+              style="border-right: thin #4a4e6973 solid; border-left: thin #4a4e6973 solid; border-top: thin #4a4e6973 solid; "
+              class="col-xs-4 align-center padding-1rem">
+              <u><small>{{'offended'|translate}}</small></u>
+              <div>
+                <small>{{'yes'|translate}}: </small><small>{{statement.offendedY}}</small> <br><small>{{'no'|translate}}: </small><small>{{statement.offendedN}}</small> 
+              </div>
+            </div>
+
+            <div class="col-xs-4 align-center padding-1rem" style="border-top: thin #4a4e6973 solid;">
+              <u><small>{{'punish'|translate}}</small></u>
+              <div>
+                <small>{{'yes'|translate}}: </small><small>{{statement.punishY}}</small> <br><small>{{'no'|translate}}: </small><small>{{statement.punishN}}</small> 
+              </div>
+            </div>
+            <div
+              style="border-top: thin #4a4e6973 solid; padding:1rem; border-bottom: thin #4a4e6973 solid;border-top: thin #4a4e6973 solid;"
+              class="col-xs-12 align-center">
+              <u><small>{{'punishment'|translate}}</small> </u>
+              <div>
+                <div class="col-xs-3">
+                  <small>{{'fine'|translate}}</small><br><small>{{statement.fine}}</small> 
+                </div>
+                <div class="col-xs-3">
+                  <small>{{'jail'|translate}}</small><br><small>{{statement.jail}}</small> 
+                </div>
+                <div class="col-xs-3">
+                  <small>{{'hurt'|translate}}</small><br><small>{{statement.harm}}</small> 
+                </div>
+                <div class="col-xs-3">
+                 <small>{{'death'|translate}}</small><br><small>{{statement.death}}</small> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 align-center line-bottom padding-1rem">
+            <button class="btn btn-success" (click)="backService.goBack()">{{'back'|translate}}</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+
+
+</div>

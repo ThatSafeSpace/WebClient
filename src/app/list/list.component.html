@@ -1,0 +1,119 @@
+<div class="viewport" id="wrapper_template">
+  <ngx-spinner [zIndex]="0" *ngIf="globals.all_entries.length==0" bdColor="#22223B" size="large" color="#f8f8ff"
+    type="ball-pulse" [fullScreen]="false"></ngx-spinner>
+
+
+
+
+  <div
+    *ngFor="let entry of globals.all_entries  | sortBy:globals.sortOrder:globals.sortKey|filter:menuService.object.searchbarText | filter:menuService.object.filterLanguageText | slice:0:menuService.object.filterNumberValue as endset,let last = last,  let i = index, trackBy:trackByFunction">
+
+
+
+
+    <div class="card fade-in" id="item-{{entry.id}}" [attr.disabled]="entry.hasBeenRated ? 'disabled' : null"
+      [ngClass]="{'disabled':entry.hasBeenRated,'lastActive':globals.currentID===entry.id}">
+      <a [routerLink]="['/entry',entry.id]">
+        <div [hidden]="!entry.tags" class="tagsStyling col-xs-12">
+          <i>{{entry.tags}}</i>
+        </div>
+        <div class="padding-1rem line-bottom col-xs-12">
+          <pre class="phrase">{{entry.phrase}}</pre>
+        </div>
+      </a>
+
+
+      <div class="row padding-1rem ">
+        <div class="dateStyling col-xs-6 cursor-default">
+          <small>{{entry.date}}</small>
+        </div>
+
+
+        <div class="votesStyling col-xs-6"
+          (click)="getVotesOnID(entry.id, entry);displayResults[entry.id]=!displayResults[entry.id]">
+          <small style="width: auto" [attr.disabled]="entry.hasBeenRated ? 'disabled' : null">
+            <b>{{entry.agreeTotal}} {{ 'eval_nr' | translate }}</b>
+          </small>
+        </div>
+      </div>
+
+      <div class="fade-in cursor-default" [hidden]="!displayResults[entry.id]">
+
+        <div>
+          <div [ngClass]="{'line-top':displayResults[entry.id]}" class="col-xs-4 align-center padding-1rem">
+            <u><small>{{'agree'|translate}}</small></u>
+            <div>
+              <small> {{'yes'|translate}}: {{entry?.agreeY}}<br>{{'no'|translate}}: {{entry?.agreeN}}</small>
+            </div>
+          </div>
+          <div [ngClass]="{'line-top':displayResults[entry.id]}"
+            style="border-right: thin #4a4e6973 solid; border-left: thin #4a4e6973 solid;"
+            class="col-xs-4 align-center padding-1rem">
+            <u><small>{{'offended'|translate}}</small></u>
+            <div>
+              <small>{{'yes'|translate}}: {{entry.offendedY}}<br>{{'no'|translate}}: {{entry.offendedN}}</small>
+            </div>
+          </div>
+
+          <div [ngClass]="{'line-top':displayResults[entry.id]}" class="col-xs-4 align-center padding-1rem">
+            <u><small>{{'punish'|translate}}</small></u>
+            <div>
+              <small>{{'yes'|translate}}: {{entry.punishY}}<br>{{'no'|translate}}: {{entry.punishN}}</small>
+            </div>
+          </div>
+          <div [ngClass]="{'line-top':displayResults[entry.id]}"
+            style="border-top: thin #4a4e6973 solid; padding:1rem; border-bottom: thin #4a4e6973 solid;"
+            class="col-xs-12 align-center">
+            <u><small>{{'punishment'|translate}}</small></u>
+            <div>
+              <div class="col-xs-3">
+                <small>{{'fine'|translate}}<br>{{entry.fine}}</small>
+              </div>
+              <div class="col-xs-3">
+                <small>{{'jail'|translate}}<br>{{entry.jail}}</small>
+              </div>
+              <div class="col-xs-3">
+                <small>{{'hurt'|translate}}<br>{{entry.harm}}</small>
+              </div>
+              <div class="col-xs-3">
+                <small>{{'death'|translate}}<br>{{entry.death}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 vertical-center" *ngIf="last">
+      <div *ngIf="endset.length != (globals.all_entries |filter:menuService.object.searchbarText | filter:menuService.object.filterLanguageText)?.length" style="cursor:default;" class="card fade-in infocard align-center">
+        <p>
+          <i style="margin-bottom:1rem;cursor:default;">
+            {{ 'LIST_infocard'| translate:{ endsetLength: endset.length, totalLength: (globals.all_entries |filter:menuService.object.searchbarText | filter:menuService.object.filterLanguageText)?.length } }}
+            </i>
+        </p>
+        <div class="btn btn-success width-unset" (click)="showFiveMoreEntries()">
+          {{'LIST_showMore'|translate}}
+        </div>
+      </div>
+
+      <div *ngIf="endset.length >= (globals.all_entries |filter:menuService.object.searchbarText | filter:menuService.object.filterLanguageText)?.length" style="cursor:default;" class="card fade-in infocard align-center">
+        <div class="col-xs-12 align-center">
+         <i>{{'LIST_null'|translate}}</i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div [hidden]="!globals.all_entries.length"
+    *ngIf="(globals.all_entries | filter:menuService.object.searchbarText).length === 0 || !menuService.object.filterNumberValue">
+    <div class="card infocard fade-in col-xs-12 align-center">
+      <i>{{'LIST_null'|translate}}</i>
+    </div>
+  </div>
+
+
+</div>

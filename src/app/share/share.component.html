@@ -1,0 +1,66 @@
+<div id="wrapper_template">
+  <div class="card fade-in">
+    <div id="supporters" style="border-top: thin;
+    border-top-color: #4a4e6973;
+    border-top-style: solid;">
+      <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+        <h4>
+          <a href="https://youtube.com/0PEX0B" target="_blank">
+            <fa-icon id="logo" [icon]="faYoutube" style="color: #22223b;"></fa-icon>
+          </a>
+          &nbsp;YouTube</h4>
+        <p>{{'CONNECT_youtube1'|translate}}
+          <a href="https://youtube.com/0PEX0B" class="darklink" target="_blank">{{'CONNECT_youtube2'|translate}}</a>.</p>
+      </div>
+
+      <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+        <h4>
+          <a href="https://www.twitter.com/ThatSafeSpace" target="_blank">
+            <fa-icon id="logo" [icon]="faTwitter" style="color: #22223b;"></fa-icon>
+          </a>
+          &nbsp;Twitter</h4>
+        <p>{{'CONNECT_twitter1'|translate}} <a href="https://www.twitter.com/ThatSafeSpace" class="darklink"
+            target="_blank">{{'CONNECT_twitter2'|translate}}</a>.</p>
+      </div>
+      <div style="border-bottom:thin;border-bottom-color:#4a4e6973;border-bottom-style:solid; padding: 1rem;">
+        <h4><fa-icon id="logo" [icon]="faInstagram" style="color: #22223b;"></fa-icon>&nbsp;Instagram</h4>
+        <p>{{'CONNECT_instagram1'|translate}}
+          <a href="https://www.instagram.com/thatsafespace_/" class="darklink"
+          target="_blank">{{'CONNECT_instagram2'|translate}}</a>
+        </p>
+      </div>
+
+      <div style="border-bottom:thin;border-bottom-color:#4a4e6973;border-bottom-style:solid; padding: 1rem;">
+        <h4><fa-icon id="logo" [icon]="faDiscord" style="color: #22223b;"></fa-icon>&nbsp;Discord</h4>
+        <p>{{'CONNECT_discord'|translate}}</p>
+      </div>
+      <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+        <h4 class="align-icons"><a href="https://gab.com/ThatSafeSpace" target="_blank"><img id="gab_icon"
+              src="assets/icons/Background.png"></a>
+          &nbsp;Gab</h4>
+        <p>{{'CONNECT_gab1'|translate}} <a href="https://gab.com/groups/3853" class="darklink"
+            target="_blank">{{'CONNECT_gab2'|translate}}</a> {{'CONNECT_gab3'|translate}}
+          <a href="https://gab.com/groups/3855" class="darklink" target="_blank">{{'CONNECT_gab4'|translate}}</a>
+          {{'CONNECT_gab5'|translate}} <a href="https://gab.com/ThatSafeSpace" class="darklink"
+            target="_blank">{{'CONNECT_gab6'|translate}}</a>.</p>
+        <p></p>
+      </div>
+
+
+      <div style="border-bottom: thin;border-bottom-color:#4a4e6973;border-bottom-style: solid;padding: 1rem;">
+        <h4><a href="mailto:info@thatsafespace.net" target="_blank">
+            <fa-icon id="logo" [icon]="faEnvelope" style="color: #22223b;"></fa-icon>
+        </a>&nbsp;Email</h4>
+        <p>{{'CONNECT_email1'|translate}} <a href="mailto:info@thatsafespace.net" class="darklink"
+            target="_blank">{{'CONNECT_email2'|translate}}</a>.</p>
+      </div>
+    </div>
+    <div style="text-align:center;
+    border-bottom:thin;
+    border-bottom-color:#4a4e6973;
+    border-bottom-style:solid;
+    padding:1rem;" class="col-xs-12">
+      <button class="btn btn-success" (click)="backService.goBack()">{{'back'|translate}}</button>
+    </div>
+  </div>
+</div>

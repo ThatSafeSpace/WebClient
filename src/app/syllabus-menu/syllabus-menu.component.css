@@ -1,0 +1,17 @@
+
+
+.align-center {
+    text-align: center;
+  }
+  
+  .width-unset {
+    width: unset;
+  }
+  
+  .padding-bottom {
+    padding-bottom: 1.5rem;
+  }
+  
+  .btn-success{
+width: auto;
+  }

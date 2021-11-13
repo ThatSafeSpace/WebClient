@@ -1,0 +1,32 @@
+<div id="wrapper_template">
+    <div class="card fade-in">
+        <div class="col-xs-12">
+            <h4 class="ng-binding"> {{'thanksCard-title'|translate}}</h4>
+            <p style="text-align: justify;word-break: keep-all" class="ng-binding">{{'thanksCard-text-one'|translate}}</p>
+            <p style="text-align: justify;word-break: keep-all" class="ng-binding">{{'thanksCard-text-two'|translate}}</p>
+        </div>
+        <div class="col-xs-12"
+            style="border-top: thin;
+    border-top-color: #4a4e6973;
+    border-top-style: solid; border-bottom:thin;border-bottom-color:#4a4e6973;border-bottom-style:solid; padding: 1rem;">
+            <a class="col-xs-6" href="#/share">
+                <div ng-click="clearBar()" style="padding: 1rem 1rem 1rem 1rem;margin: 1rem;
+    width: 85%;" class="btn btn-success  fade-in-answer ng-binding">
+                    {{'share'|translate}}
+                </div>
+            </a>
+            <a class="col-xs-6" href="#/donate">
+                <div ng-click="clearBar()" style="padding: 1rem 1rem 1rem 1rem;margin: 1rem;
+    width: 85%;" class="btn btn-success  fade-in-answer ng-binding">
+                    {{'donate'|translate}}
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-12" style="padding: 1rem;">
+            <p class="ng-binding">{{'thanksCard-end'|translate}}</p>
+            <div class="col-xs-12" style="padding:1rem;text-align: center;">
+                <a class="btn btn-success" ng-controller="HadesController" ng-click="goBack()">{{'back'|translate}}</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container col-sm-offset-3 col-sm-6 padding-1rem fade-in align-center">
+  <button class="btn btn-success mr-3 width-unset" title="{{'back'|translate}}"
+    (click)="menuService.toggleFilterLanguageOrSortSettings()">
+    <fa-icon [icon]="faChevronLeft"></fa-icon>
+  </button>
+
+  <button class="btn btn-success mr-2 width-unset" title="{{'language'|translate}}"
+    [class.active]="menuService.object.filterLanguageSelected" (click)="menuService.toggleFilterSettingsLanguage()">
+    {{'language'|translate}}
+  </button>
+  <button class="btn btn-success mr-2 width-unset" title="{{'amount'|translate}}"
+    [class.active]="menuService.object.filterNumberSelected" (click)="menuService.toggleFilterSettingsNumber()">
+    {{'amount'|translate}}
+  </button>
+</div>

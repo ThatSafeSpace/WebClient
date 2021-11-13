@@ -1,0 +1,19 @@
+<div class="container col-sm-offset-3 col-sm-6 padding-1rem fade-in align-center">
+  <button style="width: unset" class="btn btn-success mr-3" routerLink="/list">
+    <fa-icon [icon]="faChevronLeft"></fa-icon>
+  </button>
+
+  <button class="btn btn-success width-unset mr-3" (click)="textCopied=true" [ngClass]="{'active': textCopied}"
+    [cdkCopyToClipboard]="scp.copyText()">
+    <span >{{'copy'|translate}}</span>
+    <fa-icon class="ml-3" *ngIf="textCopied" [icon]="faCheck"></fa-icon>
+  </button>
+
+
+  <button class="btn btn-success width-unset" (click)="screenshotTaken=true" [ngClass]="{'active': screenshotTaken}"
+    (click)="scp.takeScreenshot(globals.currentID)">
+    <span>{{'screenshot'|translate}}</span>
+    <fa-icon class="ml-3" *ngIf="screenshotTaken" [icon]="faCheck"></fa-icon>
+  </button>
+
+</div>

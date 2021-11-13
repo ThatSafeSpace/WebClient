@@ -1,0 +1,15 @@
+<div class="col-xs-12 col-md-6 offset-md-3  align-self-center padding-1rem fade-in">
+
+
+  <div id="searchBar" class="input-group">
+    <div class="input-group-prepend">
+      <div title="{{'back'|translate}}" (click)="menuService.toggleSearchBar()">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </div>
+    </div>
+    <input autofocus [(value)]="menuService.object.searchbarText" #text (keyup)="menuService.object.searchbarText = text.value"
+      autocomplete="off">
+      <fa-icon (click)="menuService.object.searchbarText=''" *ngIf="menuService.object.searchbarText" [icon]="faTimes" class="fade-in"></fa-icon>
+    <fa-icon *ngIf="!menuService.object.searchbarText" [icon]="faSearch" class="fade-in"></fa-icon>
+  </div>
+</div>

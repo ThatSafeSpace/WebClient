@@ -1,0 +1,37 @@
+<div class="container col-sm-offset-3 col-sm-6 padding-1rem fade-in align-center">
+
+  <button class="btn btn-success mr-3 width-unset" title="{{'back'|translate}}" (click)="menuService.toggleSortSettings()">
+    <fa-icon [icon]="faChevronLeft"></fa-icon>
+  </button>
+
+  <button class="btn btn-success mr-2 width-unset" title="{{'MENUSORT_date'|translate}}"
+    [class.active]="menuService.object.sortByDate" (click)="menuService.sortByDate()">
+    <span *ngIf="!mobile">{{'MENUSORT_date'|translate}}</span>
+    <fa-icon *ngIf="mobile" [icon]="faCalendarAlt"></fa-icon>
+    <span class="ml-2 sortorder" [hidden]="!menuService.object.sortByDate"
+      [class.reverse]="menuService.object.sortDescending"></span>
+  </button>
+
+  <button class="btn btn-success mr-2 width-unset" title="{{'MENUSORT_length'|translate}}"
+    [class.active]="menuService.object.sortByLength" (click)="menuService.sortByLength()">
+    <span *ngIf="!mobile">{{'MENUSORT_length'|translate}}</span>
+    <fa-icon *ngIf="mobile" [icon]="faFileAlt"></fa-icon>
+    <span class="ml-2 sortorder" [hidden]="!menuService.object.sortByLength"
+      [class.reverse]="menuService.object.sortDescending"></span>
+  </button>
+
+  <button class="btn btn-success mr-3 width-unset" title="{{'MENUSORT_votes'|translate}}"
+    [class.active]="menuService.object.sortByVotes" (click)="menuService.sortByVotes()">
+    <span *ngIf="!mobile">{{'MENUSORT_votes'|translate}}</span>
+    
+    <fa-icon *ngIf="mobile" [icon]="faPoll"></fa-icon>
+    <span class="ml-2 sortorder" [hidden]="!menuService.object.sortByVotes"
+      [class.reverse]="menuService.object.sortDescending"></span>
+  </button>
+
+  <button class="btn btn-success width-unset" title="{{'reset'|translate}}"
+    [disabled]="menuService.object.sortResetDisabled" (click)="menuService.sortReset()">
+    <fa-icon [icon]="faSort"></fa-icon>
+    <fa-icon [icon]="faTrash"></fa-icon>
+  </button>
+</div>

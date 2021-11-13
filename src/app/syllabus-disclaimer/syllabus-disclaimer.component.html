@@ -1,0 +1,89 @@
+<div id="wrapper_template">
+
+
+
+  <div class="card infocard fade-in padding-1rem">
+    <div class="line-top line-bottom padding-1rem">
+      <h4 class="align-center">Syllabus</h4>
+    </div>
+    <p class="padding-1rem margin-none cursor-pointer">
+      {{'SYLLABUS_text1'|translate}}
+    </p>
+    <p class="padding-1rem margin-none cursor-pointer">
+      {{'SYLLABUS_text2'|translate}}
+    </p>
+    <p class="padding-1rem line-bottom margin-none cursor-pointer margin-none">
+      {{'SYLLABUS_text3'|translate}}
+    </p>
+  </div>
+
+
+  <div class="card fade-in padding-1rem">
+    <div class="line-top line-bottom padding-1rem">
+      <h4 class="align-center">{{'SYLLABUS_novice-title'|translate}}</h4>
+    </div>
+    <p class="padding-1rem line-bottom margin-none cursor-pointer">
+
+      {{'SYLLABUS_text4'|translate}}
+    </p>
+    <div class="align-center">
+      <div class="padding-1rem line-bottom col-xs-6 col-md-4">
+        <a class="btn btn-success" routerLink="/fallacies"><b>{{'SYLLABUS_fallacies'|translate}}</b></a>
+      </div>
+      <div class="padding-1rem line-bottom col-xs-6 col-md-4">
+        <a class="btn btn-success" routerLink="/biases"><b>{{'SYLLABUS_biases'|translate}}</b></a>
+      </div>
+      <div class="padding-1rem line-bottom col-xs-12 col-md-4">
+        <a class="btn btn-success" routerLink="/razors"><b>{{'SYLLABUS_razors'|translate}}</b></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in padding-1rem">
+
+    <div class="line-top line-bottom padding-1rem">
+      <h4 class="align-center">{{'SYLLABUS_advanced-title'|translate}}</h4>
+    </div>
+    <p class="padding-1rem line-bottom margin-none cursor-pointer">
+      {{'SYLLABUS_text5'|translate}}
+    </p>
+    <div class="align-center">
+      <div class="padding-1rem line-bottom col-xs-6">
+        <a class="btn btn-success" href="https://yourlogicalfallacyis.com/de" target="_blank">
+          <b class="mr-2">{{'VAR_GERMAN'|translate}}</b> <fa-icon [icon]="faExternalLinkAlt"></fa-icon>
+        </a>
+      </div>
+      <div class="padding-1rem line-bottom col-xs-6">
+        <a class="btn btn-success" href="https://yourlogicalfallacyis.com" target="_blank">
+          <b class="mr-2">{{'VAR_ENGLISH'|translate}}</b> <fa-icon [icon]="faExternalLinkAlt"></fa-icon>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card fade-in padding-1rem">
+
+    <div class="line-top line-bottom padding-1rem">
+      <h4 class="align-center">{{'SYLLABUS_expert-title'|translate}}</h4>
+    </div>
+    <p class="padding-1rem line-bottom margin-none cursor-pointer">
+      {{'SYLLABUS_text6'|translate}}
+    </p>
+    <div class="align-center">
+      <div class="padding-1rem line-bottom col-xs-12">
+        <a class="btn btn-success" style="width: unset;" target="_blank"
+          href="https://upload.wikimedia.org/wikipedia/commons/c/ce/Cognitive_Bias_Codex_With_Definitions%2C_an_Extension_of_the_work_of_John_Manoogian_by_Brian_Morrissette.jpg">
+          <b class="mr-2">Cognitive Bias Codex</b> <fa-icon [icon]="faExternalLinkAlt"></fa-icon>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-xs-12 align-center">
+    <div style="cursor:default;" class="card fade-in infocard align-center">
+      <button class="btn btn-success" routerLink="/"><b>{{'back'|translate}}</b> </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+
+::placeholder {
+    color: #22223B;
+  }
+
+  #wrapper_template {
+    padding-top: 10rem;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}

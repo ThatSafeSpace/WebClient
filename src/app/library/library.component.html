@@ -1,0 +1,30 @@
+<div id="wrapper_template">
+  <div class="card infocard  fade-in" *ngIf="contentLoaded">
+    <div class="line-top line-bottom padding-1rem cursor-default">
+      <h4 class="align-center">{{'VAR_library'|translate}}</h4>
+    </div>
+    <div class="padding-1rem">
+      <p>{{'LIBRARY_text1'|translate}}
+        <a class="darklink" href="https://www.youtube.com/watch?v=dQiBD-crrvA&list=PL7JJ2Kr3oZhAvOJwy1RxKH2fGjLQLQ-D2">
+          YouTube</a>.
+      </p>
+      <p>{{'LIBRARY_text2'|translate}}
+        <a class="darklink" routerLink="/contact">
+          {{'LIBRARY_here'|translate}}</a>{{'LIBRARY_text3'|translate}}
+      </p>
+    </div>
+
+    <div class="col-xs-12 line-top line-bottom padding-1rem align-center">
+      <button class="btn btn-success" routerLink="/hub">{{'back'|translate}}</button>
+    </div>
+
+  </div>
+  <div class="card infocard fade-in padding-1rem cursor-default" *ngFor="let book of library">
+    <i>{{book.author}}</i>
+    <br>
+    <h4>
+      <b>{{book.title}}</b>
+    </h4>
+    <i>{{book.language}} | {{book.year}}</i>
+  </div>
+</div>
