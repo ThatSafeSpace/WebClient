@@ -74,6 +74,8 @@ import { SortByPipe } from './sort-by.pipe';
 import { MenuFilterNumberComponent } from './menu-filter-number/menu-filter-number.component';
 import { MenuStatementComponent } from './menu-statement/menu-statement.component';
 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -141,7 +143,8 @@ import { MenuStatementComponent } from './menu-statement/menu-statement.componen
     ReactiveFormsModule,
     CountdownModule,
     NgxSpinnerModule,
-    ScrollingModule
+    ScrollingModule,
+    InfiniteScrollModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [BackService, ApiService, Globals, ListComponent, MenuSearchComponent,StatementComponent, MenuStatementComponent],
